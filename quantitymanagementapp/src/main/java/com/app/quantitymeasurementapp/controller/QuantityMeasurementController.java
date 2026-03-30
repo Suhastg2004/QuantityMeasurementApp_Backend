@@ -24,23 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * UC 17 Enhancements:
- * 1. Added @RestController and @RequestMapping annotations to define this class
- * as a REST controller and to specify the base URL for the API endpoints.
- * 2. Refactored the QuantityMeasurementApp class to expose API methods in this
- * controller class, changing method names from demonstrationXXX to performXXX
- * to better reflect their purpose as REST API methods that perform specific
- * operations on quantities.
- * 3. Added @PostMapping and @GetMapping annotations to the API methods to define the
- * HTTP verbs and endpoints for each operation (e.g., /compare, /convert, /add).
- * 4. Added Swagger annotations (@Operation and @Tag) to the controller and its
- * methods to enhance API documentation and provide clear descriptions of each
- * endpoint's functionality.
- * 5. Implemented error handling in the API methods using try-catch blocks to catch
- * any exceptions thrown by the service layer, logging the errors, and returning
- * appropriate HTTP responses (e.g., bad request) when errors occur.
- */
+
 @RestController
 @RequestMapping("/api/v1/quantities")
 @Tag(name = "Quantity Measurements", description = "REST API for quantity measurement operations")
@@ -89,6 +73,7 @@ public class QuantityMeasurementController {
                     })
             )
     )
+    
     public ResponseEntity<QuantityMeasurementDTO> performComparison(
             @Valid @RequestBody QuantityInputDTO quantityInputDTO) {
         return ResponseEntity.ok(service.compare(
@@ -126,6 +111,7 @@ public class QuantityMeasurementController {
                     })
             )
     )
+    
     public QuantityMeasurementDTO performAddition(@Valid @RequestBody QuantityInputDTO input) {
         if (input.getTargetQuantityDTO() != null) {
             return service.add(input.getThisQuantityDTO(), 
@@ -144,6 +130,7 @@ public class QuantityMeasurementController {
                     })
             )
     )
+    
     public ResponseEntity<QuantityMeasurementDTO> performAdditionWithTargetUnit(
             @Valid @RequestBody QuantityInputDTO quantityInputDTO) {
         return ResponseEntity.ok(service.add(
