@@ -75,10 +75,17 @@ Default properties are in:
 
 ```bash
 cd quantitymanagementapp
-bash mvnw spring-boot:run
+./mvnw spring-boot:run
 ```
 
 Application starts at: `http://localhost:8080`
+
+Windows (PowerShell/CMD):
+
+```powershell
+cd quantitymanagementapp
+mvnw.cmd spring-boot:run
+```
 
 ## API Docs and Monitoring
 
@@ -91,7 +98,14 @@ Application starts at: `http://localhost:8080`
 
 ```bash
 cd quantitymanagementapp
-bash mvnw test
+./mvnw test
+```
+
+Windows (PowerShell/CMD):
+
+```powershell
+cd quantitymanagementapp
+mvnw.cmd test
 ```
 
 Note: Integration tests require DB connectivity based on active datasource configuration.
