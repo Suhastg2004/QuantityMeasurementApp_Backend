@@ -99,6 +99,7 @@ Note: Integration tests require DB connectivity based on active datasource confi
 ## Security
 
 Current security configuration allows all requests (`permitAll`) and enables CORS for localhost origins.
+This is suitable only for local development/testing. Enable proper authentication and authorization before production deployment.
 
 ## Repository Structure
 
